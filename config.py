@@ -179,6 +179,10 @@ screens = [
                 background=colors[0],
                 length=5
                 ),
+                widget.Spacer(
+                background=colors[0],
+                length=5
+                ),
                 widget.TextBox(
                 background=colors[0],
                 text='Volume:'
