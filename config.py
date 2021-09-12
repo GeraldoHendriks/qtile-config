@@ -20,8 +20,8 @@ keys = [
     #Key([mod], "r", lazy.spawn("dmenu_run"), desc="Launch Dmenu"),
     #Key([mod], "w", lazy.spawn("firefox-esr"), desc="Launch Firefox"),
     Key([mod], "r", lazy.spawncmd(), desc="Launch Prompt"),
-    Key([mod], "w", lazy.spawn("brave-browser"), desc="Launch Brave"),
-    Key([mod], "e", lazy.spawn("atom"), desc="Launch Atom"),
+    Key([mod], "w", lazy.spawn("brave"), desc="Launch Brave"),
+    Key([mod], "e", lazy.spawn("code"), desc="Launch VSCode"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch Pcmanfm"),
     Key([mod], "v", lazy.spawn("virtualbox"), desc="Launch Virtualbox"),
 
@@ -75,18 +75,18 @@ keys = [
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "control"], "p", lazy.spawn("poweroff"), desc="Shutdown"),
-    Key([mod], "p", lazy.spawn("xtrlock -b"), desc="Lock screen"),
+    Key([mod], "p", lazy.spawn("xtrlock"), desc="Lock screen"),
 ]
 
-group_names = [("HOME", {'layout': 'Columns'}),
-               ("WWW", {'layout': 'Columns'}),
+group_names = [("WWW", {'layout': 'Columns'}),
                ("DEV", {'layout': 'Columns'}),
                ("SYS", {'layout': 'Columns'}),
-               ("DOC", {'layout': 'Columns'}),
-               ("VBOX", {'layout': 'Columns'}),
                ("CHAT", {'layout': 'Columns'}),
+               ("VBOX", {'layout': 'Columns'}),
+               ("DOC", {'layout': 'Columns'}),
                ("MUS", {'layout': 'Columns'}),
-               ("VID", {'layout': 'Columns'})]
+               ("VID", {'layout': 'Columns'}),
+               ("OTHER", {'layout': 'Columns'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
