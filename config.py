@@ -21,7 +21,7 @@ keys = [
     #Key([mod], "w", lazy.spawn("firefox-esr"), desc="Launch Firefox"),
     Key([mod], "r", lazy.spawncmd(), desc="Launch Prompt"),
     Key([mod], "w", lazy.spawn("brave"), desc="Launch Brave"),
-    Key([mod], "e", lazy.spawn("code"), desc="Launch VSCode"),
+    Key([mod], "e", lazy.spawn("emacs"), desc="Launch Doom emacs"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch Pcmanfm"),
     Key([mod], "v", lazy.spawn("virtualbox"), desc="Launch Virtualbox"),
 
@@ -75,7 +75,7 @@ keys = [
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "control"], "p", lazy.spawn("poweroff"), desc="Shutdown"),
-    Key([mod], "p", lazy.spawn("xtrlock"), desc="Lock screen"),
+    Key(["mod4"], "l", lazy.spawn("xtrlock -b"), desc="Lock screen"),
 ]
 
 group_names = [("WWW", {'layout': 'Columns'}),
@@ -140,7 +140,7 @@ screens = [
                 background=colors[0],
                 foreground=colors[6],
                 fontsize=16,
-                text=''
+                text=''
                 ),
                 widget.GroupBox(
                 active = colors[2],
