@@ -12,7 +12,7 @@ from typing import List  # noqa: F401
 
 
 mod = "mod1"
-terminal = "st"
+terminal = "terminator"
 
 keys = [
 
@@ -21,9 +21,9 @@ keys = [
     #Key([mod], "w", lazy.spawn("firefox-esr"), desc="Launch Firefox"),
     Key([mod], "r", lazy.spawncmd(), desc="Launch Prompt"),
     Key([mod], "w", lazy.spawn("brave"), desc="Launch Brave"),
-    Key([mod], "e", lazy.spawn("emacs"), desc="Launch Doom emacs"),
-    Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch Pcmanfm"),
-    Key([mod], "v", lazy.spawn("virtualbox"), desc="Launch Virtualbox"),
+    Key([mod], "e", lazy.spawn("code"), desc="Launch Code OSS"),
+    #Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch Pcmanfm"),
+    #Key([mod], "v", lazy.spawn("virtualbox"), desc="Launch Virtualbox"),
 
 
     # Custom volume commands
@@ -94,19 +94,18 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-colors = [["#282c34", "#282c34"], # panel background
-          ["#3d3f4b", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#4f76c7", "#4f76c7"], # color for the 'even widgets
-          ["#e1acff", "#e1acff"], # window name
+colors = [["#282c34", "#282c34"], # 0
+          ["#3d3f4b", "#434758"], # 1
+          ["#ffffff", "#ffffff"], # 2
+          ["#AEC3B0", "#AEC3B0"], # 3
+          ["#124559", "#124559"], # 4
+          ["#598392", "#598392"], # 5
           ]
 
 layout_theme = {"border_width": 2,
                 "margin": 15,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
+                "border_focus": colors[5],
+                "border_normal": colors[1]
                 }
 
 
@@ -136,36 +135,30 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.TextBox(
-                background=colors[0],
-                foreground=colors[6],
-                fontsize=16,
-                text=''
-                ),
                 widget.GroupBox(
                 active = colors[2],
                 inactive = colors[1],
                 rounded = False,
                 highlight_color = colors[1],
                 highlight_method = "line",
-                this_current_screen_border = colors[6],
+                this_current_screen_border = colors[4],
                 this_screen_border = colors [4],
-                other_current_screen_border = colors[6],
+                other_current_screen_border = colors[4],
                 other_screen_border = colors[4],
                 foreground = colors[2],
                 background = colors[0]
                 ),
                 widget.Spacer(
                 background=colors[0],
-                length=20
+                length=10
                 ),
                 widget.WindowName(
                 background=colors[0],
-                foreground=colors[6]
+                foreground=colors[3]
                 ),
                 widget.Prompt(
                 background=colors[0],
-                prompt="  ",
+                prompt="Run: ",
                 cursor=False
                 ),
                 widget.Spacer(
@@ -268,4 +261,4 @@ auto_minimize = True
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "Qtile"
