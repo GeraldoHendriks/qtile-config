@@ -20,16 +20,15 @@ keys = [
     #Key([mod], "r", lazy.spawn("dmenu_run"), desc="Launch Dmenu"),
     #Key([mod], "w", lazy.spawn("firefox-esr"), desc="Launch Firefox"),
     Key([mod], "r", lazy.spawncmd(), desc="Launch Prompt"),
-    Key([mod], "w", lazy.spawn("brave"), desc="Launch Brave"),
+    Key([mod], "w", lazy.spawn("brave-browser"), desc="Launch Brave"),
     Key([mod], "e", lazy.spawn("code"), desc="Launch Code OSS"),
-    #Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch Pcmanfm"),
-    #Key([mod], "v", lazy.spawn("virtualbox"), desc="Launch Virtualbox"),
+    Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch Pcmanfm"),
 
 
     # Custom volume commands
     Key([], "XF86AudioMute", lazy.spawn("pulsemixer --toggle-mute"), desc="Mute"),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pulsemixer --change-volume +5"), desc="Volume up"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pulsemixer --change-volume -5"), desc="Volume dowm"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pulsemixer --change-volume +1"), desc="Volume up"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pulsemixer --change-volume -1"), desc="Volume dowm"),
 
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -78,11 +77,11 @@ keys = [
     Key(["mod4"], "l", lazy.spawn("xtrlock -b"), desc="Lock screen"),
 ]
 
-group_names = [("WWW", {'layout': 'Columns'}),
+group_names = [("MAIN", {'layout': 'Columns'}),
+               ("WEB", {'layout': 'Columns'}),
                ("DEV", {'layout': 'Columns'}),
-               ("SYS", {'layout': 'Columns'}),
                ("CHAT", {'layout': 'Columns'}),
-               ("VBOX", {'layout': 'Columns'}),
+               ("SYS", {'layout': 'Columns'}),
                ("DOC", {'layout': 'Columns'}),
                ("MUS", {'layout': 'Columns'}),
                ("VID", {'layout': 'Columns'}),
@@ -111,7 +110,7 @@ layout_theme = {"border_width": 2,
 
 layouts = [
     layout.Columns(**layout_theme),
-    layout.Max(),
+    layout.Max(**layout_theme),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -164,6 +163,9 @@ screens = [
                 widget.Spacer(
                 background=colors[0],
                 length=20
+                ),
+                widget.Notify(
+                background=colors[0]
                 ),
                 widget.Systray(
                 background=colors[0]
