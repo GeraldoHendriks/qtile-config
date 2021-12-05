@@ -17,8 +17,6 @@ terminal = "terminator"
 keys = [
 
     # Custom launch commands
-    #Key([mod], "r", lazy.spawn("dmenu_run"), desc="Launch Dmenu"),
-    #Key([mod], "w", lazy.spawn("firefox-esr"), desc="Launch Firefox"),
     Key([mod], "r", lazy.spawncmd(), desc="Launch Prompt"),
     Key([mod], "w", lazy.spawn("brave-browser"), desc="Launch Brave"),
     Key([mod], "e", lazy.spawn("code"), desc="Launch Code OSS"),
@@ -27,8 +25,8 @@ keys = [
 
     # Custom volume commands
     Key([], "XF86AudioMute", lazy.spawn("pulsemixer --toggle-mute"), desc="Mute"),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pulsemixer --change-volume +1"), desc="Volume up"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pulsemixer --change-volume -1"), desc="Volume dowm"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pulsemixer --change-volume +5"), desc="Volume up"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pulsemixer --change-volume -5"), desc="Volume dowm"),
 
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -73,8 +71,7 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod, "control"], "p", lazy.spawn("poweroff"), desc="Shutdown"),
-    Key(["mod4"], "l", lazy.spawn("xtrlock -b"), desc="Lock screen"),
+    Key(["mod4"], "l", lazy.spawn("xtrlock"), desc="Lock screen"),
 ]
 
 group_names = [("MAIN", {'layout': 'Columns'}),
