@@ -91,7 +91,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 colors = [["#282c34", "#282c34"], # 0
-          ["#3d3f4b", "#434758"], # 1
+          ["#3d3f4b", "#3d3f4b"], # 1
           ["#ffffff", "#ffffff"], # 2
           ["#AEC3B0", "#AEC3B0"], # 3
           ["#124559", "#124559"], # 4
