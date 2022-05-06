@@ -7,7 +7,6 @@ from libqtile import qtile
 from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
-from libqtile.lazy import lazy
 from typing import List  # noqa: F401
 
 
@@ -18,8 +17,8 @@ keys = [
 
     # Custom launch commands
     Key([mod], "r", lazy.spawncmd(), desc="Launch Prompt"),
-    Key([mod], "w", lazy.spawn("brave-browser"), desc="Launch Brave"),
-    Key([mod], "e", lazy.spawn("code"), desc="Launch Code OSS"),
+    Key([mod], "w", lazy.spawn("firefox"), desc="Launch Brave"),
+    Key([mod], "e", lazy.spawn("emacs"), desc="Launch emacs"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch Pcmanfm"),
 
 
@@ -67,7 +66,7 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
